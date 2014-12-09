@@ -2,68 +2,106 @@ require 'pry'
 
 class Fixnum 	
 	def to_roman	
-
 		number = self		
-		
 		val = ""
 
-#To-Do2: method to return array with hash
-		number_to_subtract, string_to_append = 
-		if number >= 500
-			[500, "D"]
+		 
+		if number >= 50
+			val << "L"
+			number = number - 50
+			string_to_append = ""
+			temp_val.times {string_to_append << "I"}
+			val << string_to_append
 
-		elsif number >= 400
-			[400, "CD"]
 
-		elsif number >= 100
-			[100, "C"]
-			
-		elsif number >= 90
-			[90, "XC"]
 
-		elsif number >= 50
-			[50, "L"]
-
-		elsif number >= 40  
-			[40, "XL"]
-		
 		elsif number >= 10
-			[10, "X"]
+			val << "X"
+			number = number - 10
+			number.to_roman
 
-		elsif number == 9 
-			[9, "IX"]
+			# string_to_append = ""
+			# number.times {string_to_append << "I"}
+			# val << string_to_append
+
+
+
+		elsif number == 9
+			val << "IX"
 
 		elsif number >= 5
-			[5, "V"]
-		
+			val << "V"
+			temp_val = number - 5
+			string_to_append = ""
+			temp_val.times {string_to_append << "I"}
+			val << string_to_append
 		elsif number == 4
-			[4, "IV"]
+			val << "IV"
 
-#To-Do1: break out range
 		elsif (1..3).include?(number)
-			temp_val = ""
-			number.times { temp_val << "I" }
-			[number, temp_val]
-		elsif number == 3
-			[3, "III"]
-		elsif number == 2
-			[2, "II"]
-		else number == 1
-			[1, "I"]
+			number.times {val << "I"}
+			val								
+		end
+
+	end			
+
+# #To-Do2: method to return array with hash
+# 		number_to_subtract, string_to_append = 
+# 		if number >= 500
+# 			[500, "D"]
+
+# 		elsif number >= 400
+# 			[400, "CD"]
+
+# 		elsif number >= 100
+# 			[100, "C"]
+			
+# 		elsif number >= 90
+# 			[90, "XC"]
+
+# 		elsif number >= 50
+# 			[50, "L"]
+
+# 		elsif number >= 40  
+# 			[40, "XL"]
+		
+# 		elsif number >= 10
+# 			[10, "X"]
+
+# 		elsif number == 9 
+# 			[9, "IX"]
+
+# 		elsif number >= 5
+# 			[5, "V"]
+		
+# 		elsif number == 4
+# 			[4, "IV"]
+
+# #To-Do1: break out range
+# 		elsif (1..3).include?(number)
+# 			temp_val = ""
+# 			number.times { temp_val << "I" }
+# 			[number, temp_val]
+# 		elsif number == 3
+# 			[3, "III"]
+# 		elsif number == 2
+# 			[2, "II"]
+# 		else number == 1
+# 			[1, "I"]
 				
-		end
+# 		end
 
 
-		number = number - number_to_subtract
-		val << string_to_append
+# 		number = number - number_to_subtract
+# 		val << string_to_append
 
-		if number > 0
-			val << number.to_roman
-		end
+# 		if number > 0
+# 			val << number.to_roman
+# 		end
 
-		return val
+# 		return val
 
-	end
+# 	end
 
 	private
 
