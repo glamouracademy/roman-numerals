@@ -5,26 +5,51 @@ class Fixnum
 		number = self		
 		val = ""
 
-		roman_mapping.each do |k,v|
-			while number >= k
-			val += v
-			number -= k  
-			end
+		roman_mapping.each do |arabic, roman|
+			while number >= arabic
+			val += roman
+			number -= arabic
+			end  
 		end
 
-
-		# if number == 5
-		# 	val = "V"
-		# 	number -= 5
-			
-		# elsif number == 4
-		# 	val = "IV"
-		# 	number -= 4
-		
-		# end
-
 		val
-	end		
+	end	
+	
+private
+
+	def roman_mapping 
+		{
+			1000 => 'M',
+			900 => 'CM',
+			500 => 'D',
+			400 => 'CD',
+			100 => 'C',
+			90 => 'XC',
+			50 => 'L',
+			40 => 'XL',
+			10 => 'X',
+			9 => 'IX',
+			5 => 'V',
+			4 => 'IV',
+			1 => 'I'		,
+		}
+	end
+end
+
+
+
+			# 1000 => 'M',
+			# 900 => 'CM',
+			# 500 => 'D',
+			# 400 => 'CD',
+			# 100 => 'C',
+			# 90 => 'XC',
+			# 50 => 'L',
+			# 40 => 'XL'
+			# 10 => 'X',
+			# 9 => 'IX',
+
+
 
 
 # #To-Do2: method to return array with hash
@@ -84,25 +109,3 @@ class Fixnum
 # 		return val
 
 # 	end
-
-	private
-
-	def roman_mapping 
-		{
-			# 1000 => 'M',
-			# 900 => 'CM',
-			# 500 => 'D',
-			# 400 => 'CD',
-			# 100 => 'C',
-			# 90 => 'XC',
-			# 50 => 'L',
-			# 40 => 'XL',
-			# 10 => 'X',
-			# 9 => 'IX',
-			5 => 'V',
-			4 => 'IV',
-			1 => 'I'		
-		}
-	end
-end
-
