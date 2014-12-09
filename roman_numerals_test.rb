@@ -18,29 +18,21 @@ class RomanTest < MiniTest::Unit::TestCase
   end
 
   def test_4
-   
+    
     assert_equal 'IV', 4.to_roman
   end
 
   def test_5
-   
     assert_equal 'V', 5.to_roman
   end
 
   def test_6
-    
     assert_equal 'VI', 6.to_roman
   end
 
   def test_9
-    
     assert_equal 'IX', 9.to_roman
   end
-
-  def test_10
-    assert_equal 'X', 10.to_roman
-  end
-
 
   def test_27
     
@@ -50,10 +42,6 @@ class RomanTest < MiniTest::Unit::TestCase
   def test_48
     
     assert_equal 'XLVIII', 48.to_roman
-  end
-
-  def test_51
-    assert_equal 'LI', 51.to_roman
   end
 
   def test_59
@@ -82,23 +70,26 @@ class RomanTest < MiniTest::Unit::TestCase
   end
 
   def test_575
-    skip
+    
     assert_equal 'DLXXV', 575.to_roman
   end
 
   def test_911
-    skip
+    
     assert_equal 'CMXI', 911.to_roman
   end
 
   def test_1024
-    skip
+    
     assert_equal 'MXXIV', 1024.to_roman
   end
 
   def test_3000
-    skip
+    
     assert_equal 'MMM', 3000.to_roman
   end
 
+  def test_0
+    assert_equal '', 0.to_roman
+  end
 end
