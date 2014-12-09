@@ -1,19 +1,17 @@
-require 'pry'
-
 class Fixnum 	
 
 def to_roman
-	number = self
-
-	if number == 0
-		return ""
-	else
-		roman_mapping.each do |k,v|
-			if number >= k
-				return v + (number - k).to_roman
-			end
+	def to_roman_helper(roman, number)
+		if number == 0
+			roman
+		else
+			k, v = roman_mapping.find { |k,v| number >= k }
+			to_roman_helper(roman + v, number - k)
 		end
 	end
+
+	to_roman_helper('', self)
+
 end
 
 private
@@ -32,26 +30,8 @@ private
 			9 => 'IX',
 			5 => 'V',
 			4 => 'IV',
-			1 => 'I'		,
+			1 => 'I'
 		}
 	end
 end
 
-
-
-
-
-#This works
-	# def to_roman	
-	# 	number = self		
-	# 	val = ""
-
-	# 	roman_mapping.each do |arabic, roman|
-	# 		while number >= arabic
-	# 		val += roman
-	# 		number -= arabic
-	# 		end  
-	# 	end
-
-	# 	val
-	# end	
