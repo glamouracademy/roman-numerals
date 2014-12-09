@@ -5,45 +5,25 @@ class Fixnum
 		number = self		
 		val = ""
 
-		 
-		if number >= 50
-			val << "L"
-			number = number - 50
-			string_to_append = ""
-			temp_val.times {string_to_append << "I"}
-			val << string_to_append
-
-
-
-		elsif number >= 10
-			val << "X"
-			number = number - 10
-			number.to_roman
-
-			# string_to_append = ""
-			# number.times {string_to_append << "I"}
-			# val << string_to_append
-
-
-
-		elsif number == 9
-			val << "IX"
-
-		elsif number >= 5
-			val << "V"
-			temp_val = number - 5
-			string_to_append = ""
-			temp_val.times {string_to_append << "I"}
-			val << string_to_append
+		if number == 5
+			val = "V"
+			number -= 5
+			
 		elsif number == 4
-			val << "IV"
-
-		elsif (1..3).include?(number)
-			number.times {val << "I"}
-			val								
+			val = "IV"
+			number -= 4
+		
 		end
 
-	end			
+		while number >= 1
+			val += "I"
+			number -= 1  
+		end
+
+		val
+	end	
+end		
+
 
 # #To-Do2: method to return array with hash
 # 		number_to_subtract, string_to_append = 
@@ -103,24 +83,24 @@ class Fixnum
 
 # 	end
 
-	private
+# 	private
 
-	def roman_mapping 
-		{
-			# 1000 => 'M',
-			# 900 => 'CM',
-			# 500 => 'D',
-			# 400 => 'CD',
-			# 100 => 'C',
-			# 90 => 'XC',
-			# 50 => 'L',
-			# 40 => 'XL',
-			# 10 => 'X',
-			# 9 => 'IX',
-			# 5 => 'V',
-			# 4 => 'IV',
-			1 => 'I'		
-		}
-	end
-end
+# 	def roman_mapping 
+# 		{
+# 			# 1000 => 'M',
+# 			# 900 => 'CM',
+# 			# 500 => 'D',
+# 			# 400 => 'CD',
+# 			# 100 => 'C',
+# 			# 90 => 'XC',
+# 			# 50 => 'L',
+# 			# 40 => 'XL',
+# 			# 10 => 'X',
+# 			# 9 => 'IX',
+# 			# 5 => 'V',
+# 			# 4 => 'IV',
+# 			1 => 'I'		
+# 		}
+# 	end
+# end
 
